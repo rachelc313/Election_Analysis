@@ -18,6 +18,16 @@ candidate_options = []
 #Declare the empty dictionary
 candidate_votes = {}
 
+#Wining Candidate and Winning Count tracker
+#Declare a variable that holds an empty string value for the winning candidate
+winning_candidate = ""
+
+#Declare a variable for the "winning count" equal to zero
+winning_count = 0
+
+#Declare a variable for the "winning percentage" equal to zero
+winning_percentage = 0
+
 #Open the election resultsread the file
 with open(file_to_load) as election_data:
 
@@ -52,7 +62,7 @@ with open(file_to_load) as election_data:
 
     #In line with the if statement - in the for loop
   #In line with the for loop - in the with open statement
-#in line with "with open" - flush with left margin
+
 
 #Determine percentage of votes
 
@@ -65,5 +75,30 @@ for candidate_name in candidate_votes:
   #3 Calculate the percentage of the vote count
   vote_percentage = float(votes) / float(total_votes) * 100
 
+  # #Print each candidate and the percentage of vote using f string format
+  # print(f"{candidate_name} received {vote_percentage: .1f}% of the vote.")
+
+
+#Determine if the vote count that was calculated is greater than the winning_count variable
+  if (votes > winning_count) and (vote_percentage > winning_percentage):
+
+    #if true set winning count equal to votes
+    winning_count = votes
+
+    #vote percentage
+    winning_percentage = vote_percentage
+
+    #set the winning candidate equal to the candidate's name
+    winning_candidate = candidate_name
+
   #Print each candidate and the percentage of vote using f string format
-  print(f"{candidate_name} received {vote_percentage: .1f}% of the vote.")
+  print(f"{candidate_name}: {vote_percentage: .1f}% ({votes:,})\n")
+
+  winning_candidate_summary = (
+    f"---------------------------\n"
+    f"Winner: {winning_candidate}\n"
+    f"Winning Vote Count: ({winning_count:,})\n"
+    f"Winning Percentage: {winning_percentage: .1f}%\n"
+    f"---------------------------\n")
+
+print(winning_candidate_summary)

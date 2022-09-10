@@ -6,7 +6,7 @@ import os
 file_to_load = os.path.join("Resources", "election_results.csv")
 
 #Assign a variable to save a file to a path
-file_to_save = os.path.join("anaysis", "election_analysis.txt")
+file_to_save = os.path.join("analysis", "election_analysis.txt")
 
 #Initialize a total vote counter
 total_votes = 0
@@ -60,45 +60,57 @@ with open(file_to_load) as election_data:
     #Add a vote to that candidate's vote count
     candidate_votes[candidate_name] += 1
 
-    #In line with the if statement - in the for loop
-  #In line with the for loop - in the with open statement
+# Save the results to our text file
+with open(file_to_save, "w") as txt_file:
+
+  election_results = (
+    f"\nElection Results\n"
+    f"-------------------------\n"
+    f"Total Votes: {total_votes:,}\n"
+    f"-------------------------\n")
+
+  print(election_results, end="")
+  
+  #save the final vote count to the text file.
+  txt_file.write(election_results)
 
 
-#Determine percentage of votes
 
-#1For loop to iterate through candidate options list - gets candidate name
-for candidate_name in candidate_votes:
+  #Determine percentage of votes
 
-  #2Use the for loop variable to retrieve the votes of the candidate from the candidate votes dict
-  votes = candidate_votes[candidate_name]
+  #1For loop to iterate through candidate options list - gets candidate name
+  for candidate_name in candidate_votes:
 
-  #3 Calculate the percentage of the vote count
-  vote_percentage = float(votes) / float(total_votes) * 100
+    #2Use the for loop variable to retrieve the votes of the candidate from the candidate votes dict
+    votes = candidate_votes[candidate_name]
 
-  # #Print each candidate and the percentage of vote using f string format
-  # print(f"{candidate_name} received {vote_percentage: .1f}% of the vote.")
+    #3 Calculate the percentage of the vote count
+    vote_percentage = float(votes) / float(total_votes) * 100
+
+    # #Print each candidate and the percentage of vote using f string format
+    # print(f"{candidate_name} received {vote_percentage: .1f}% of the vote.")
 
 
-#Determine if the vote count that was calculated is greater than the winning_count variable
-  if (votes > winning_count) and (vote_percentage > winning_percentage):
+  #Determine if the vote count that was calculated is greater than the winning_count variable
+    if (votes > winning_count) and (vote_percentage > winning_percentage):
 
-    #if true set winning count equal to votes
-    winning_count = votes
+      #if true set winning count equal to votes
+      winning_count = votes
 
-    #vote percentage
-    winning_percentage = vote_percentage
+      #vote percentage
+      winning_percentage = vote_percentage
 
-    #set the winning candidate equal to the candidate's name
-    winning_candidate = candidate_name
+      #set the winning candidate equal to the candidate's name
+      winning_candidate = candidate_name
 
-  #Print each candidate and the percentage of vote using f string format
-  print(f"{candidate_name}: {vote_percentage: .1f}% ({votes:,})\n")
+    #Print each candidate and the percentage of vote using f string format
+    # print(f"{candidate_name}: {vote_percentage: .1f}% ({votes:,})\n")
 
-  winning_candidate_summary = (
-    f"---------------------------\n"
-    f"Winner: {winning_candidate}\n"
-    f"Winning Vote Count: ({winning_count:,})\n"
-    f"Winning Percentage: {winning_percentage: .1f}%\n"
-    f"---------------------------\n")
+    winning_candidate_summary = (
+      f"---------------------------\n"
+      f"Winner: {winning_candidate}\n"
+      f"Winning Vote Count: ({winning_count:,})\n"
+      f"Winning Percentage: {winning_percentage: .1f}%\n"
+      f"---------------------------\n")
 
-print(winning_candidate_summary)
+  # print(winning_candidate_summary)

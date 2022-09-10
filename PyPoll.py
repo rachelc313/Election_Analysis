@@ -113,4 +113,12 @@ with open(file_to_save, "w") as txt_file:
       f"Winning Percentage: {winning_percentage: .1f}%\n"
       f"---------------------------\n")
 
+    candidate_results = (f"{candidate_name}: {vote_percentage:.1f}% ({votes:,})\n")
+
+  #Print each candidate, their voter count, and percentage to the terminal
+    print(candidate_results)
+  
+  #Save the candidate results to the text file.
+    txt_file.write(candidate_results)
+
   # print(winning_candidate_summary)

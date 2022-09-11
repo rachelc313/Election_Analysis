@@ -38,15 +38,18 @@ The script used in analyzing the data provided will be useful for any election. 
 My understanding of this script leads me to believe that the following code can be added to further audit the data and return an error message to alert the user of duplicate Ballot' ID's. There is a chance that because I am iterating through each row individually, this may not actually catch duplicates if the Ballot ID's are not in order. 
 
 In line 30, initialize a list to hold the Ballot ID's:
-insert mod_1_ballot_id_options
+
+![Mod_1_ballot_id_options](https://user-images.githubusercontent.com/111570965/189553755-6b2982cd-1cc2-4954-81b2-68e57c7a3e88.png)
 
 
 In line 70, get the Ballot ID from each row.
-insert mod_1_ballot_id
+
+![mod_1_ballot_id](https://user-images.githubusercontent.com/111570965/189553760-d0958417-6358-4859-af82-30dc7d14384e.png)
 
 
 In lines 103 to 105, write an if statement to print the error message if the ballot ID is found in the list. 
-insert mod_1_if_statement
+
+![mod_1_if_statement](https://user-images.githubusercontent.com/111570965/189553765-6360be18-586e-4ae2-80c9-6072a72fccf7.png)
 
 
 

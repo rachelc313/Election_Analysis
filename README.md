@@ -1,6 +1,6 @@
 # Election_Analysis
 
-## Project Overview
+## Overview of Election Audit
 Using data provided by a Colorado Board of Elections to audit a recent local congressional election.
 
 1. How many votes were cast in this congressional election?
@@ -13,7 +13,7 @@ Using data provided by a Colorado Board of Elections to audit a recent local con
 - Data Source: election_results.csv
 - Software: Python 3.7.6, Visual Studio Code 1.71.0
 
-## Summary
+## Election Audit Results
 The analysis of the election show that:
 - There were 369,711 votes cast in the election
 - County Votes:
@@ -27,5 +27,32 @@ The analysis of the election show that:
     - Raymon Anthony Doane received 3.1% of the vote and 11,606 number of votes.
 - The winner of the election was:
     - Diana DeGette, who received 272,892 votes which was 73.8% of the vote.
+
+## Election Audit Summary
+
+### Benefits of Current Script
+The script used in analyzing the data provided will be useful for any election. As long as the data is formatted in a csv file with the county in the second row or first index and the candidate in the third row or second index. 
+
+### Modifications
+
+My understanding of this script leads me to believe that the following code can be added to further audit the data and return an error message to alert the user of duplicate Ballot' ID's. There is a chance that because I am iterating through each row individually, this may not actually catch duplicates if the Ballot ID's are not in order. 
+
+In line 30, initialize a list to hold the Ballot ID's:
+insert mod_1_ballot_id_options
+
+
+In line 70, get the Ballot ID from each row.
+insert mod_1_ballot_id
+
+
+In lines 103 to 105, write an if statement to print the error message if the ballot ID is found in the list. 
+insert mod_1_if_statement
+
+
+
+
+
+
+
     
 
